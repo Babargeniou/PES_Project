@@ -1,5 +1,7 @@
 /*Circuit:
  - Arduino Nano 33 BLE Board
+ 
+ Reading HTS221 Sensor
 
  Group:3
  Babar Bashir
@@ -54,5 +56,8 @@ void loop() {
   Serial.print("Humidity = ");
   Serial.print(humidity);
   Serial.println(" %");
+ 
+ // wait 1 second to print again
+  delay(1000);
 
 }
