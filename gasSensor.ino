@@ -18,7 +18,7 @@ AirQuality airqualitysensor;
 int current_quality =-1;
 const int pin19 = A0;   // input pin
 //const int pin20 = A1;   // output pin
-const int ledPin3 = 24;
+const int ledPin3 = 24;   // output pin
 
 void setup() {
   // put your setup code here, to run once:
