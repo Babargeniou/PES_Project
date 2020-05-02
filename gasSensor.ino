@@ -39,25 +39,25 @@ void loop() {
         if (current_quality ==0){
            // Serial.println("High pollution! Force signal active");
             Serial.println("LED ON");
-            digitalWrite(ledPin3, HIGH);
+            digitalWrite(ledPin3, LOW);
         }
             
         else if (current_quality == 1){
          // Serial.println("High pollution!");
             Serial.println("LED ON");
-            digitalWrite(ledPin3, HIGH);
+            digitalWrite(ledPin3, LOW);
         }
             
         else if (current_quality == 2){
            //Serial.println("Low pollution!");
             Serial.println("LED OFF");
-            digitalWrite(ledPin3, LOW);
+            digitalWrite(ledPin3, HIGH);
         }
             
         else if (current_quality == 3){
           //Serial.println("Air fresh");
             Serial.println("LED OFF");
-            digitalWrite(ledPin3, LOW);
+            digitalWrite(ledPin3, HIGH);
         }
      
     }
