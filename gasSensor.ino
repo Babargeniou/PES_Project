@@ -17,7 +17,8 @@ Reading HTS221 Sensor
 AirQuality airqualitysensor;
 int current_quality =-1;
 const int pin19 = A0;   // input pin
-const int pin20 = A1;   // output pin
+//const int pin20 = A1;   // output pin
+const int ledPin3 = 24;
 
 void setup() {
   // put your setup code here, to run once:
@@ -25,7 +26,8 @@ void setup() {
   Serial.begin(9600);
   airqualitysensor.init(A0);
 
-  pinMode(A1,OUTPUT);
+ // pinMode(D2,OUTPUT);
+ pinMode(24, OUTPUT);
 }
 
 void loop() {
@@ -37,25 +39,25 @@ void loop() {
         if (current_quality ==0){
            // Serial.println("High pollution! Force signal active");
             Serial.println("LED ON");
-            digitalWrite(pin20, HIGH);
+            digitalWrite(ledPin3, HIGH);
         }
             
         else if (current_quality == 1){
          // Serial.println("High pollution!");
             Serial.println("LED ON");
-            digitalWrite(pin20, HIGH);
+            digitalWrite(ledPin3, HIGH);
         }
             
         else if (current_quality == 2){
            //Serial.println("Low pollution!");
             Serial.println("LED OFF");
-            digitalWrite(pin20, LOW);
+            digitalWrite(ledPin3, LOW);
         }
             
         else if (current_quality == 3){
           //Serial.println("Air fresh");
             Serial.println("LED OFF");
-            digitalWrite(pin20, LOW);
+            digitalWrite(ledPin3, LOW);
         }
      
     }
