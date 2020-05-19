@@ -71,13 +71,13 @@ double temperArray[limit];
       
         Serial.println("sumTemper");  
         Serial.println(sumTemper);   
-        //avergTemper = sumTemper/len;
+        avergTemper = sumTemper/len;
         Serial.println("Average Temperature");
-        Serial.println(sumTemper/len);
+        Serial.println(avergTemper);
         
 
 
-       if ( 20.00 < sumTemper/len < 25.00 ){
+       if ( avergTemper >= 20.00 && avergTemper <= 25.00 ){
             Serial.println(" Green LED ON");
             Serial.println("");
             digitalWrite(ledPin, HIGH);          
@@ -85,7 +85,7 @@ double temperArray[limit];
             digitalWrite(ledPin3, HIGH);                         
         }
 
-        else {
+        else if(avergTemper > 25) {
           
             Serial.println("Red LED ON");
             Serial.println("");
@@ -93,6 +93,16 @@ double temperArray[limit];
             digitalWrite(ledPin2, HIGH);    
             digitalWrite(ledPin3, HIGH);             
           }
+
+          else {
+            
+            Serial.println("Blue LED ON");
+            Serial.println("");
+            digitalWrite(ledPin, HIGH);            
+            digitalWrite(ledPin2, HIGH);    
+            digitalWrite(ledPin3, LOW);        // Blue
+            
+            }
         
      // Serial.println(" °C");
      // delay (1000);
