@@ -14,12 +14,20 @@ Reading HTS221 Sensor and Bluetooth
 
 #include <Arduino_HTS221.h> //Include library to read Temperature and Humidity
 
+const int ledPin = 22;    // Red led
+const int ledPin2 = 23;   // Green led
+const int ledPin3 = 24;   // Blue led
+
 
 void setup() {
   Serial.begin(9600);   /* opens serial port, sets data rate to 9600 bps */
   while (!Serial);
 
+  pinMode(22, OUTPUT);
+  pinMode(23, OUTPUT);
+  pinMode(24, OUTPUT);
 
+  
   //Initialize Temperature and Humidity sensor. 
   if (!HTS.begin()){ 
     Serial.println("Failed to initialize Temperature and Humidity Sensor!"); while (1);}
@@ -52,10 +60,8 @@ double temperArray[limit];
         //avergTemper = sumTemper/10;
       //  Serial.println(avergTemper);
         delay (1000);
-       // }
+       
         
-     // sumTemper =+ HTS.readTemperature();
-     // averTemper = sumTemper/len;
       }
 
       for (int i = 1; i<= len ; i++) {
@@ -69,7 +75,25 @@ double temperArray[limit];
         Serial.println("Average Temperature");
         Serial.println(sumTemper/len);
         
-     
+
+
+       if ( 20.00 < sumTemper/len < 25.00 ){
+            Serial.println(" Green LED ON");
+            Serial.println("");
+            digitalWrite(ledPin, HIGH);          
+            digitalWrite(ledPin2, LOW);             // Green
+            digitalWrite(ledPin3, HIGH);                         
+        }
+
+        else {
+          
+            Serial.println("Red LED ON");
+            Serial.println("");
+            digitalWrite(ledPin, LOW);            // Red
+            digitalWrite(ledPin2, HIGH);    
+            digitalWrite(ledPin3, HIGH);             
+          }
+        
      // Serial.println(" °C");
      // delay (1000);
       
